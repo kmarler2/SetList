@@ -1,1 +1,10 @@
-card.css
+.card {
+  display: inline-block;
+  width: 20%;
+  font-size: 18px;
+}
+
+.card-button {
+  width: 80%;
+  font-size: 15px;
+}

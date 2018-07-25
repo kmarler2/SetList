@@ -41,7 +41,7 @@ export class SearchForm extends Component {
         placeholder='Search for an artist'
         onChange={this.handleChange}
       />
-      <button>Go!</button>
+      <button className='form-button'>Go!</button>
     </form>
     )
   }
