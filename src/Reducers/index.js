@@ -4,7 +4,7 @@ import updateSetlistReducer from './updateSetlistReducer';
 
 const rootReducer = combineReducers({
   error: errorReducer,
-  updateSetlists: updateSetlistReducer
+  sets: updateSetlistReducer
 });
 
 export default rootReducer;

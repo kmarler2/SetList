@@ -3,6 +3,7 @@ import './app.css';
 import SearchForm from './../SearchForm/searchForm.js';
 import Header from './../../Components/Header/header.js';
 import { Card } from './../../Containers/Card/card.js';
+import CardContainer from '../../Components/CardContainer/cardContainer.js';
 
 class App extends Component {
   render() {
@@ -10,7 +11,7 @@ class App extends Component {
       <div>
         <Header />
         <SearchForm />
-        <Card />
+        <CardContainer />
       </div>
     );
   }

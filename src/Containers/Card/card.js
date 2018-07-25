@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-export const Card = (props) => {
+export const Card = ({artist, date, venue, city, set}) => {
+  console.log('props: ', artist)
   const data = {
     artist,
     date,
@@ -9,4 +10,8 @@ export const Card = (props) => {
     city, 
     set
   }
-  }
+  return (
+    <div>
+    </div>
+  )
+}
