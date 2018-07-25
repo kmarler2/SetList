@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './searchForm.css';
 import { getSetInfo } from './../../Utilities/ApiCalls/apiCalls.js';
 import { CleanSet } from './../../Utilities/SetCleaner/setCleaner.js';
-import { getSet, displayError } from './../../Actions/actions.js';
+import { getSet, displayError, updateSetlists } from './../../Actions/actions.js';
+import { connect } from "react-redux";
 
 export class SearchForm extends Component {
   constructor() {
@@ -24,12 +25,9 @@ export class SearchForm extends Component {
     event.preventDefault();
     try { 
       const response = await getSetInfo(this.state.search);
-      console.log(response)
-      this.setState({
-        setlist: response
-      })
+      this.props.handleData(response)
     } catch(error) {
-      throw new Error(error.message)
+      alert(error.message)
     }
   }
 
@@ -49,12 +47,17 @@ export class SearchForm extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-  query: state.search
+export const mapStateToProps = state => ({
+  query: state.search,
+  setlist: state.setlist
 });
 
-export const mapDispatchToProps = (dispatch) => ({
-  handleError: (error) => dispatch(displayError(error))
+export const mapDispatchToProps = dispatch => ({
+  handleData: setlists => dispatch(updateSetlists(setlists)),
+  handleError: error => dispatch(displayError(error))
 });
 
-export default SearchForm;
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps)
+(SearchForm);
